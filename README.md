@@ -40,4 +40,7 @@ Use
 
 To avoid typing ".\kv.exe" each time.
 
+## TODO
 
+    * Deleting key-value. Current workaround, just delete the files from the `.kv` directory.
+    * `kv -` should denote the "last used key". Should let you use kv like a clipboard.

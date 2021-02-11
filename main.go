@@ -18,11 +18,12 @@ func getStorageDirectory() string {
 
 func ensureDirectory() string {
 	path := getStorageDirectory()
+	os.MkdirAll(path, os.ModePerm)
 	return path
 }
 
 func list() {
-	path := getStorageDirectory()
+	path := ensureDirectory()
 	files, err := ioutil.ReadDir(path)
 	if err != nil {
 		log.Fatal(err)
@@ -51,7 +52,7 @@ func set(key, value string) {
 }
 
 func get(key string) {
-	keyFile := filepath.Join(getStorageDirectory(), key)
+	keyFile := filepath.Join(ensureDirectory(), key)
 	f, err := os.Open(keyFile)
 
 	if err != nil {

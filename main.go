@@ -56,7 +56,7 @@ func get(key string) {
 	f, err := os.Open(keyFile)
 
 	if err != nil {
-		log.Fatal(err)
+		return
 	}
 
 	defer f.Close()
